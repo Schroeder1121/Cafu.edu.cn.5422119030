@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外交学院统一身份认证平台</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="login-container">
+
+    <div class="login-header">
+
+        <h1>外交学院</h1>
+
+        <h2>统一身份认证平台</h2>
+
+        <p>China Foreign Affairs University Identity Authentication</p>
+
+    </div>
+
+    <div class="login-box">
+
+        <h3>用户登录</h3>
+
+        <div class="input-group">
+
+            <label>学号</label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="请输入学号"
+                autocomplete="off">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>密码</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="请输入密码">
+
+        </div>
+
+        <div id="error-message"></div>
+
+        <button id="loginBtn">
+            登 录
+        </button>
+
+    </div>
+
+    <div class="copyright">
+
+        版权所有 © 外交学院
+
+        <br>
+
+        China Foreign Affairs University
+
+        <br><br>
+
+        Identity Authentication System v2026
+
+    </div>
+
+</div>
+
+<div id="loading-screen">
+
+    <div class="loader"></div>
+
+    <h2>身份验证中...</h2>
+
+    <p>正在进入财务综合服务门户，请稍候</p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html
