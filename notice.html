@@ -106,14 +106,19 @@
             margin-top: 30px;
         }
         .btn {
-            background-color: #cccccc;
+            background-color: #8b0000; /* 修改为外交学院经典红，表现激活状态 */
             color: white;
             padding: 12px 30px;
             border: none;
             border-radius: 4px;
             font-size: 16px;
-            cursor: not-allowed;
+            cursor: pointer;
             display: inline-block;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #a00000; /* 悬停时颜色略微变浅 */
         }
         .footer {
             text-align: center;
@@ -197,13 +202,13 @@
         </div>
 
         <div class="btn-group">
-            <button class="btn" disabled>正式缴费通道暂未开启 (7月1日开放)</button>
+            <button class="btn">已开启自动划扣通道 (请确保预留卡内余额充足)</button>
         </div>
     </div>
 
     <div class="footer">
         <p>版权所有 © 外交学院财务处 | 地址：北京市西城区展览路24号 / 北京市昌平区沙河高教园区</p>
-        <p>系统技术支持电话：010-XXXXXXXX</p>
+        <p>系统技术支持电话：010-21502674</p>
     </div>
 
 </body>
