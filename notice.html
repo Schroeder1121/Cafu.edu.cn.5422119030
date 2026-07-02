@@ -213,95 +213,119 @@
 
     <script>
         document.getElementById('payBtn').addEventListener('click', function() {
-            // 使用 JavaScript 动态重写当前页面内容，模拟跳转到新页面的效果
+            // 1. 进入加载等待状态
             document.open();
             document.write(`
                 <!DOCTYPE html>
                 <html lang="zh-CN">
                 <head>
                     <meta charset="UTF-8">
-                    <title>外交学院财务综合服务门户 - 交易状态</title>
+                    <title>系统处理中...</title>
                     <style>
                         body {
-                            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
+                            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                             background-color: #f4f6f9;
                             margin: 0;
-                            padding: 0;
-                            color: #333;
                             display: flex;
-                            flex-direction: column;
-                            min-height: 100vh;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
                         }
-                        .header {
-                            background-color: #8b0000;
-                            color: white;
-                            padding: 20px;
+                        .loading-box {
                             text-align: center;
-                        }
-                        .header h1 { margin: 0; font-size: 24px; }
-                        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.8; }
-                        .content-box {
-                            max-width: 600px;
-                            margin: 80px auto;
                             background: white;
-                            padding: 40px;
+                            padding: 40px 60px;
                             border-radius: 8px;
                             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-                            text-align: center;
                         }
-                        .icon {
-                            font-size: 48px;
-                            color: #f0ad4e;
-                            margin-bottom: 20px;
+                        .spinner {
+                            width: 50px;
+                            height: 50px;
+                            border: 5px solid #f3f3f3;
+                            border-top: 5px solid #8b0000; /* 学校主题红 */
+                            border-radius: 50%;
+                            animation: spin 1s linear infinite;
+                            margin: 0 auto 20px auto;
                         }
-                        .tip-text {
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                        .loading-text {
                             font-size: 18px;
-                            font-weight: bold;
                             color: #333;
-                            line-height: 1.6;
-                        }
-                        .sub-text {
-                            font-size: 14px;
-                            color: #666;
-                            margin-top: 15px;
-                        }
-                        .back-btn {
-                            margin-top: 30px;
-                            background-color: #666;
-                            color: white;
-                            padding: 8px 20px;
-                            border: none;
-                            border-radius: 4px;
-                            cursor: pointer;
-                        }
-                        .footer {
-                            text-align: center;
-                            color: #999;
-                            font-size: 12px;
-                            margin-top: auto;
-                            padding: 20px 0;
-                            border-top: 1px solid #e5e5e5;
+                            font-weight: bold;
                         }
                     </style>
                 </head>
                 <body>
-                    <div class="header">
-                        <h1>外交学院财务综合服务门户</h1>
-                        <p>China Foreign Affairs University Financial Service Portal</p>
-                    </div>
-                    <div class="content-box">
-                        <div class="icon">⏳</div>
-                        <div class="tip-text">您的缴费申请已提交，请一个工作日后查看缴费状态。</div>
-                        <div class="sub-text">请确保您名下的中国银行借记卡内资金充足。</div>
-                        <button class="back-btn" onclick="window.location.reload()">返回上一页</button>
-                    </div>
-                    <div class="footer">
-                        <p>版权所有 © 外交学院财务处 | 系统技术支持电话：010-21502674</p>
+                    <div class="loading-box">
+                        <div class="spinner"></div>
+                        <div class="loading-text">缴费申请提交中，请稍候...</div>
                     </div>
                 </body>
                 </html>
             `);
             document.close();
+
+            // 2. 设置 2000毫秒（2秒）延迟后跳转到提示结果页面
+            setTimeout(function() {
+                document.open();
+                document.write(`
+                    <!DOCTYPE html>
+                    <html lang="zh-CN">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>外交学院财务综合服务门户 - 交易状态</title>
+                        <style>
+                            body {
+                                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                background-color: #f4f6f9;
+                                margin: 0;
+                                padding: 0;
+                                color: #333;
+                                display: flex;
+                                flex-direction: column;
+                                min-height: 100vh;
+                            }
+                            .header { background-color: #8b0000; color: white; padding: 20px; text-align: center; }
+                            .header h1 { margin: 0; font-size: 24px; }
+                            .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.8; }
+                            .content-box {
+                                max-width: 600px;
+                                margin: 80px auto;
+                                background: white;
+                                padding: 40px;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                                text-align: center;
+                            }
+                            .icon { font-size: 48px; color: #f0ad4e; margin-bottom: 20px; }
+                            .tip-text { font-size: 18px; font-weight: bold; color: #333; line-height: 1.6; }
+                            .sub-text { font-size: 14px; color: #666; margin-top: 15px; }
+                            .back-btn { margin-top: 30px; background-color: #666; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer; }
+                            .footer { text-align: center; color: #999; font-size: 12px; margin-top: auto; padding: 20px 0; border-top: 1px solid #e5e5e5; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <h1>外交学院财务综合服务门户</h1>
+                            <p>China Foreign Affairs University Financial Service Portal</p>
+                        </div>
+                        <div class="content-box">
+                            <div class="icon">⏳</div>
+                            <div class="tip-text">系统正在进行缴费核验与批量划扣处理，请一个工作日后查看缴费状态。</div>
+                            <div class="sub-text">请确保您名下的中国银行借记卡内资金充足。如有疑问，请联系技术支持。</div>
+                            <button class="back-btn" onclick="window.location.reload()">返回上一页</button>
+                        </div>
+                        <div class="footer">
+                            <p>版权所有 © 外交学院财务处 | 系统技术支持电话：010-21502674</p>
+                        </div>
+                    </body>
+                    </html>
+                `);
+                document.close();
+            }, 2000); // 2000毫秒 = 2秒
         });
     </script>
 </body>
