@@ -106,7 +106,7 @@
             margin-top: 30px;
         }
         .btn {
-            background-color: #8b0000; /* 修改为外交学院经典红，表现激活状态 */
+            background-color: #8b0000;
             color: white;
             padding: 12px 30px;
             border: none;
@@ -118,7 +118,7 @@
             text-decoration: none;
         }
         .btn:hover {
-            background-color: #a00000; /* 悬停时颜色略微变浅 */
+            background-color: #a00000;
         }
         .footer {
             text-align: center;
@@ -202,7 +202,7 @@
         </div>
 
         <div class="btn-group">
-            <button class="btn">已开启自动划扣通道 (请确保预留卡内余额充足)</button>
+            <button id="payBtn" class="btn">已开启自动划扣通道 (请确保预留卡内余额充足)</button>
         </div>
     </div>
 
@@ -211,5 +211,98 @@
         <p>系统技术支持电话：010-21502674</p>
     </div>
 
+    <script>
+        document.getElementById('payBtn').addEventListener('click', function() {
+            // 使用 JavaScript 动态重写当前页面内容，模拟跳转到新页面的效果
+            document.open();
+            document.write(`
+                <!DOCTYPE html>
+                <html lang="zh-CN">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>外交学院财务综合服务门户 - 交易状态</title>
+                    <style>
+                        body {
+                            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
+                            background-color: #f4f6f9;
+                            margin: 0;
+                            padding: 0;
+                            color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            min-height: 100vh;
+                        }
+                        .header {
+                            background-color: #8b0000;
+                            color: white;
+                            padding: 20px;
+                            text-align: center;
+                        }
+                        .header h1 { margin: 0; font-size: 24px; }
+                        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.8; }
+                        .content-box {
+                            max-width: 600px;
+                            margin: 80px auto;
+                            background: white;
+                            padding: 40px;
+                            border-radius: 8px;
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                            text-align: center;
+                        }
+                        .icon {
+                            font-size: 48px;
+                            color: #f0ad4e;
+                            margin-bottom: 20px;
+                        }
+                        .tip-text {
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: #333;
+                            line-height: 1.6;
+                        }
+                        .sub-text {
+                            font-size: 14px;
+                            color: #666;
+                            margin-top: 15px;
+                        }
+                        .back-btn {
+                            margin-top: 30px;
+                            background-color: #666;
+                            color: white;
+                            padding: 8px 20px;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                        }
+                        .footer {
+                            text-align: center;
+                            color: #999;
+                            font-size: 12px;
+                            margin-top: auto;
+                            padding: 20px 0;
+                            border-top: 1px solid #e5e5e5;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>外交学院财务综合服务门户</h1>
+                        <p>China Foreign Affairs University Financial Service Portal</p>
+                    </div>
+                    <div class="content-box">
+                        <div class="icon">⏳</div>
+                        <div class="tip-text">您的缴费申请已提交，请一个工作日后查看缴费状态。</div>
+                        <div class="sub-text">请确保您名下的中国银行借记卡内资金充足。</div>
+                        <button class="back-btn" onclick="window.location.reload()">返回上一页</button>
+                    </div>
+                    <div class="footer">
+                        <p>版权所有 © 外交学院财务处 | 系统技术支持电话：010-21502674</p>
+                    </div>
+                </body>
+                </html>
+            `);
+            document.close();
+        });
+    </script>
 </body>
 </html>
